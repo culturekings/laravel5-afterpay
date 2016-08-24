@@ -1,0 +1,16 @@
+{
+    "name": "culturekings/laravel5-afterpay",
+    "description": "Afterpay API integration exposed via Laravel5 services'",
+    "type": "library",
+    "require": {
+        "culturekings/afterpay": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jared Fraser",
+            "email": "j.fraser@culturekings.com.au"
+        }
+    ],
+    "minimum-stability": "stable"
+}
