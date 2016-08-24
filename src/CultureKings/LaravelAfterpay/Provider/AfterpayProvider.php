@@ -5,18 +5,18 @@ namespace CultureKings\LaravelAfterpay\Provider;
 use \Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * Class ServiceProvider
+ * Class AfterPayProviderProvider
  * @package CultureKings\LaravelAfterpay\Provider
  */
-class ServiceProvider extends IlluminateServiceProvider
+class AfterPayProviderProvider extends IlluminateServiceProvider
 {
     /**
      *
      */
     public function register()
     {
-        $this->app->singleton(Connection::class, function ($app) {
-            return new Connection(config('riak'));
-        });
+//        $this->app->singleton(Connection::class, function ($app) {
+//            return new Connection(config('riak'));
+//        });
     }
 }
