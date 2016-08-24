@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fea269e8950b3b42230456fe92ceb1cc",
-    "content-hash": "858f83e92d1413dc94d0958c42897b8a",
+    "hash": "1a96b3fc20fc26336402f2369a01e8d9",
+    "content-hash": "8f8c38196c02c54bbefd0cb9306805f8",
     "packages": [
         {
             "name": "culturekings/afterpay",
