@@ -5,10 +5,10 @@ namespace CultureKings\LaravelAfterpay\Provider;
 use \Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * Class AfterPayProviderProvider
+ * Class AfterPayProvider
  * @package CultureKings\LaravelAfterpay\Provider
  */
-class AfterPayProviderProvider extends IlluminateServiceProvider
+class AfterPayProvider extends IlluminateServiceProvider
 {
     /**
      *
