@@ -1,6 +1,8 @@
 AfterPay for Laravel 5
 =======================
 
+This packages exposes services from [CultureKings/AfterPay](https://github.com/culturekings/afterpay) in Laravel5. 
+
 [![Coverage Status](https://coveralls.io/repos/github/culturekings/laravel5-afterpay/badge.svg?branch=master)](https://coveralls.io/github/culturekings/laravel5-afterpay?branch=master)
 
 ## Installation
@@ -37,16 +39,38 @@ php artisan vendor:publish
 
 Update your settings in the generated app/config/afterpay.php configuration file.
 
-return [
-    'credentials' => [
-        'key'    => 'YOUR_AWS_ACCESS_KEY_ID',
-        'secret' => 'YOUR_AWS_SECRET_ACCESS_KEY',
-    ],
-    'region' => 'us-west-2',
-    'version' => 'latest',
+## Usage
 
-    // You can override settings for specific services
-    'Ses' => [
-        'region' => 'us-east-1',
-    ],
-];
+### Facades
+
+This package exposes multiple facades for you to use.
+
+Using the facades allows you not to worry about the Authorisation object that is required for calls.
+
+Configuration
+```php
+$api = \App::make('afterpay_configuration');
+$api::get();
+```
+Payments
+```php
+$api = \App::make('afterpay_payments');
+$payments = $api::listPayments();
+```
+Orders
+```php
+$api = \App::make('afterpay_orders');
+$order = $api::get(ORDER_TOKEN);
+```
+
+### Raw
+
+[read the documentation](https://github.com/culturekings/afterpay)
+
+Raw does away with the Facade and hits the services directly, giving you more flexibility. 
+The trade off is that your now responsible for creating your own Authentication object and injecting it into the services. 
+You can still ask Laravel to create you an Authentication object with your credentials loaded from config.
+
+```php
+$auth = \App::make(CultureKings\Afterpay\Model\Authorization::class);
+```

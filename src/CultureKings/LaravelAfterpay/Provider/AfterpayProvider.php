@@ -5,6 +5,12 @@ namespace CultureKings\LaravelAfterpay\Provider;
 
 use CultureKings\Afterpay\Factory\Api;
 use CultureKings\Afterpay\Model\Authorization;
+use CultureKings\Afterpay\Service\Configuration;
+use CultureKings\Afterpay\Service\Orders;
+use CultureKings\Afterpay\Service\Payments;
+use CultureKings\LaravelAfterpay\Facade\ConfigurationFacade;
+use CultureKings\LaravelAfterpay\Facade\OrdersFacade;
+use CultureKings\LaravelAfterpay\Facade\PaymentsFacade;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
@@ -43,6 +49,23 @@ class AfterPayProvider extends IlluminateServiceProvider
             $config = $app->make('config')->get('afterpay');
             return new Authorization($config['url'], $config['merchantId'], $config['secretKey']);
         });
+
+        $this->app->singleton(Configuration::class, function ($app) {
+            return Api::configuration($app->make('afterpay_authorization'));
+        });
+
+        $this->app->singleton(Orders::class, function ($app) {
+            return Api::orders($app->make('afterpay_authorization'));
+        });
+
+        $this->app->singleton(Payments::class, function ($app) {
+            return Api::payments($app->make('afterpay_authorization'));
+        });
+
+        $this->app->alias(Authorization::class, 'afterpay_authorization');
+        $this->app->alias(PaymentsFacade::class, 'afterpay_payments');
+        $this->app->alias(ConfigurationFacade::class, 'afterpay_configuration');
+        $this->app->alias(OrdersFacade::class, 'afterpay_orders');
     }
 
     public function provides()
