@@ -24,7 +24,7 @@ class AfterPayProvider extends IlluminateServiceProvider
      * Defer loading the factory till needed.
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
 
     /**
      *
@@ -32,11 +32,7 @@ class AfterPayProvider extends IlluminateServiceProvider
     public function boot()
     {
         $source = dirname(__DIR__, 4).'/config/afterpay.php';
-
-        if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
-            $this->publishes([$source => config_path('afterpay.php')]);
-        }
-
+        $this->publishes([$source => config_path('afterpay.php')]);
         $this->mergeConfigFrom($source, 'afterpay');
     }
 

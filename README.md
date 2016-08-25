@@ -1,7 +1,7 @@
-AfterPay for Laravel 5
+Afterpay for Laravel 5
 =======================
 
-This packages exposes services from [CultureKings/AfterPay](https://github.com/culturekings/afterpay) in Laravel5. 
+This packages exposes services from [CultureKings/Afterpay](https://github.com/culturekings/afterpay) in Laravel5. 
 
 [![Coverage Status](https://coveralls.io/repos/github/culturekings/laravel5-afterpay/badge.svg?branch=master)](https://coveralls.io/github/culturekings/laravel5-afterpay?branch=master)
 
