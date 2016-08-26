@@ -3,12 +3,11 @@ namespace CultureKings\LaravelAfterpay\Facade;
 
 use CultureKings\Afterpay\Service\Orders;
 use Illuminate\Support\Facades\Facade;
-use CultureKings\Afterpay\Model\OrderDetails;
 
 /**
  * Class OrdersFacade
  * @package CultureKings\LaravelAfterpay\Facade
- * @method create(OrderDetails $orderDetail)
+ * @method create(\CultureKings\Afterpay\Model\OrderDetails $orderDetail)
  * @method get($token)
  */
 class OrdersFacade extends Facade
