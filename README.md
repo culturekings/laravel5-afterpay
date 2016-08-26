@@ -4,6 +4,9 @@ Afterpay for Laravel 5
 This packages exposes services from [CultureKings/Afterpay](https://github.com/culturekings/afterpay) in Laravel5. 
 
 [![Coverage Status](https://coveralls.io/repos/github/culturekings/laravel5-afterpay/badge.svg?branch=master)](https://coveralls.io/github/culturekings/laravel5-afterpay?branch=master)
+[![CircleCI](https://img.shields.io/circleci/project/culturekings/laravel5-afterpay.svg?style=svg)](https://img.shields.io/circleci/project/culturekings/laravel5-afterpay.svg?style=svg)
+[![Scrutinizer](https://scrutinizer-ci.com/g/culturekings/laravel5-afterpay/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/culturekings/afterpay/laravel5-afterpay/quality-score.png?b=master)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/3fd9cfea-4edb-4ce1-94f5-bd2358bfb7a6.svg)](https://img.shields.io/sensiolabs/i/3fd9cfea-4edb-4ce1-94f5-bd2358bfb7a6.svg)
 
 ## Version Compatibility
 
