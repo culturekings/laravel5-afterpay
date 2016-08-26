@@ -23,7 +23,6 @@ class AfterPayProvider extends IlluminateServiceProvider
      * @var bool
      */
     protected $defer = false;
-
     /**
      *
      */
