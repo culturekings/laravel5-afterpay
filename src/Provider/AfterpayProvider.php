@@ -29,7 +29,7 @@ class AfterPayProvider extends IlluminateServiceProvider
      */
     public function boot()
     {
-        $source = dirname(__DIR__, 2).'/config/afterpay.php';
+        $source = dirname(dirname(__DIR__)).'/config/afterpay.php';
         $this->publishes([$source => config_path('afterpay.php')]);
         $this->mergeConfigFrom($source, 'afterpay');
     }
