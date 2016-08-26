@@ -14,6 +14,7 @@ class OrdersFacadeTest extends AbstractTestCase
     {
         /** @var OrdersFacade $facade */
         $facade = $this->app->make('afterpay_orders');
+        $facade::shouldReceive();
         $this->assertInstanceOf(OrdersFacade::class, $facade);
     }
 }
