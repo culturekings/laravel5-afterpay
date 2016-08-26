@@ -32,7 +32,7 @@ dependencies:
 test:
   override:
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit/
-    - vendor/bin/phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml --coverage-clover build/logs/clover.xml tests
+    - vendor/bin/phpunit -c phpunit.xml --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml --coverage-clover build/logs/clover.xml tests
     - vendor/bin/phpcs --config-set installed_paths vendor/culturekings/symfony2-coding-standard
     - vendor/bin/phpcs
     - vendor/bin/phpcpd ./src

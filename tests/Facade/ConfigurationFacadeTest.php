@@ -14,6 +14,7 @@ class ConfigurationFacadeTest extends AbstractTestCase
     {
         /** @var ConfigurationFacade $facade */
         $facade = $this->app->make('afterpay_configuration');
+        $facade::shouldReceive();
         $this->assertInstanceOf(ConfigurationFacade::class, $facade);
     }
 }
