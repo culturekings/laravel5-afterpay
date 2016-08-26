@@ -5,6 +5,12 @@ This packages exposes services from [CultureKings/Afterpay](https://github.com/c
 
 [![Coverage Status](https://coveralls.io/repos/github/culturekings/laravel5-afterpay/badge.svg?branch=master)](https://coveralls.io/github/culturekings/laravel5-afterpay?branch=master)
 
+## Version Compatibility
+
+ Laravel  | Laravel5 Afterpay
+:---------|:----------
+ 5.2.x    | @dev
+
 ## Installation
 
 The recommended way to install is via [Composer](http://getcomposer.org).

@@ -18,6 +18,9 @@ class AfterpayProviderTest extends TestCase
 
     public function testConfig()
     {
-        dump($this->app->make('config'));
+        $config = \Config::get('afterpay');
+        $this->assertEquals(Authorization::SANDBOX_URI, $config['url']);
+        $this->assertEquals('ABC123', $config['merchantId']);
+        $this->assertEquals('123ABC', $config['secretKey']);
     }
 }

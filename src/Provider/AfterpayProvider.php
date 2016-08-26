@@ -24,14 +24,14 @@ class AfterPayProvider extends IlluminateServiceProvider
      * Defer loading the factory till needed.
      * @var bool
      */
-    protected $defer = false;
+    protected $defer = true;
 
     /**
      *
      */
     public function boot()
     {
-        $source = dirname(__DIR__, 4).'/config/afterpay.php';
+        $source = dirname(__DIR__, 2).'/config/afterpay.php';
         $this->publishes([$source => config_path('afterpay.php')]);
         $this->mergeConfigFrom($source, 'afterpay');
     }
@@ -66,6 +66,9 @@ class AfterPayProvider extends IlluminateServiceProvider
 
     public function provides()
     {
-        return [Authorization::class, Api::class];
+        return [
+            Authorization::class,
+            Api::class
+        ];
     }
 }
