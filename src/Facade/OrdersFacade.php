@@ -13,5 +13,8 @@ use CultureKings\Afterpay\Model\OrderDetails;
  */
 class OrdersFacade extends Facade
 {
-    protected static function getFacadeAccessor() { return Orders::class; }
+    protected static function getFacadeAccessor()
+    {
+        return Orders::class;
+    }
 }

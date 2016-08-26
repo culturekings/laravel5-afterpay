@@ -11,5 +11,11 @@ use Illuminate\Support\Facades\Facade;
  */
 class PaymentsFacade extends Facade
 {
-    protected static function getFacadeAccessor() { return Payments::class; }
+    /**
+     * @return mixed
+     */
+    protected static function getFacadeAccessor()
+    {
+        return Payments::class;
+    }
 }

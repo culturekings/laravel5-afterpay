@@ -11,5 +11,8 @@ use Illuminate\Support\Facades\Facade;
  */
 class ConfigurationFacade extends Facade
 {
-    protected static function getFacadeAccessor() { return Payments::class; }
+    protected static function getFacadeAccessor()
+    {
+        return Payments::class;
+    }
 }
