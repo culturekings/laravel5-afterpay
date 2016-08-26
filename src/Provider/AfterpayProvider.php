@@ -22,7 +22,7 @@ class AfterPayProvider extends IlluminateServiceProvider
      * Defer loading the factory till needed.
      * @var bool
      */
-    protected $defer = true;
+    protected $defer = false;
 
     /**
      *
