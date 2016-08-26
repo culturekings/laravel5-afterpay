@@ -1,7 +1,7 @@
 <?php
 namespace CultureKings\LaravelAfterpay\Facade;
 
-use CultureKings\Afterpay\Service\Payments;
+use CultureKings\Afterpay\Service\Configuration;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -13,6 +13,6 @@ class ConfigurationFacade extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return Payments::class;
+        return Configuration::class;
     }
 }
