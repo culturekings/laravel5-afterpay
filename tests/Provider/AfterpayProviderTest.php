@@ -4,9 +4,9 @@ namespace tests\Provider;
 use CultureKings\Afterpay\Factory\Api;
 use CultureKings\Afterpay\Model\Authorization;
 use CultureKings\LaravelAfterpay\Provider\AfterPayProvider;
-use tests\TestCase;
+use tests\AbstractTestCase;
 
-class AfterpayProviderTest extends TestCase
+class AfterpayProviderTest extends AbstractTestCase
 {
     public function testProvides()
     {

@@ -2,13 +2,13 @@
 namespace tests\Facade;
 
 use CultureKings\LaravelAfterpay\Facade\ConfigurationFacade;
-use tests\TestCase;
+use tests\AbstractTestCase;
 
 /**
  * Class ConfigurationFacadeTest
  * @package tests\Facade
  */
-class ConfigurationFacadeTest extends TestCase
+class ConfigurationFacadeTest extends AbstractTestCase
 {
     public function testCanInitialise()
     {
