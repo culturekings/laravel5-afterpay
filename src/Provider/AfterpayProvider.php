@@ -39,24 +39,24 @@ class AfterPayProvider extends IlluminateServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Authorization::class, function ($app) {
+        $this->app->singleton(Authorization::class, function (Application $app) {
             /** @var Application $app */
             $config = $app->make('config')->get('afterpay');
 
             return new Authorization($config['url'], $config['merchantId'], $config['secretKey']);
         });
 
-        $this->app->singleton(Configuration::class, function ($app) {
+        $this->app->singleton(Configuration::class, function (Application $app) {
             /** @var Application $app */
             return Api::configuration($app->make('afterpay_authorization'));
         });
 
-        $this->app->singleton(Orders::class, function ($app) {
+        $this->app->singleton(Orders::class, function (Application $app) {
             /** @var Application $app */
             return Api::orders($app->make('afterpay_authorization'));
         });
 
-        $this->app->singleton(Payments::class, function ($app) {
+        $this->app->singleton(Payments::class, function (Application $app) {
             /** @var Application $app */
             return Api::payments($app->make('afterpay_authorization'));
         });
