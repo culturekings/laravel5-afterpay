@@ -71,6 +71,9 @@ class AfterPayProvider extends IlluminateServiceProvider
     {
         return [
             Authorization::class,
+            Payments::class,
+            Configuration::class,
+            Orders::class,
             Api::class,
         ];
     }
