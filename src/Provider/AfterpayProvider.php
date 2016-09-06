@@ -14,10 +14,10 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * Class AfterPayProvider
+ * Class AfterpayProvider
  * @package CultureKings\LaravelAfterpay\Provider
  */
-class AfterPayProvider extends IlluminateServiceProvider
+class AfterpayProvider extends IlluminateServiceProvider
 {
     /**
      * Defer loading the factory till needed.

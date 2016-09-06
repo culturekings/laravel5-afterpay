@@ -1,7 +1,7 @@
 <?php
 namespace tests;
 
-use CultureKings\LaravelAfterpay\Provider\AfterPayProvider;
+use CultureKings\LaravelAfterpay\Provider\AfterpayProvider;
 
 /**
  * Class AbstractTestCase
@@ -16,7 +16,7 @@ abstract class AbstractTestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageProviders($app)
     {
         return [
-            AfterPayProvider::class,
+            AfterpayProvider::class,
         ];
     }
 }
