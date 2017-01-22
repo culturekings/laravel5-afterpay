@@ -3,13 +3,13 @@
 namespace CultureKings\LaravelAfterpay\Provider;
 
 use CultureKings\Afterpay\Factory\Api;
-use CultureKings\Afterpay\Model\Authorization;
-use CultureKings\Afterpay\Service\Configuration;
-use CultureKings\Afterpay\Service\Orders;
-use CultureKings\Afterpay\Service\Payments;
-use CultureKings\LaravelAfterpay\Facade\ConfigurationFacade;
-use CultureKings\LaravelAfterpay\Facade\OrdersFacade;
-use CultureKings\LaravelAfterpay\Facade\PaymentsFacade;
+use CultureKings\Afterpay\Model\Merchant\Authorization;
+use CultureKings\Afterpay\Service\Merchant\Configuration;
+use CultureKings\Afterpay\Service\Merchant\Orders;
+use CultureKings\Afterpay\Service\Merchant\Payments;
+use CultureKings\LaravelAfterpay\Facade\Merchant\ConfigurationFacade;
+use CultureKings\LaravelAfterpay\Facade\Merchant\OrdersFacade;
+use CultureKings\LaravelAfterpay\Facade\Merchant\PaymentsFacade;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 

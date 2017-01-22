@@ -2,7 +2,7 @@
 namespace tests\Provider;
 
 use CultureKings\Afterpay\Factory\Api;
-use CultureKings\Afterpay\Model\Authorization;
+use CultureKings\Afterpay\Model\Merchant\Authorization;
 use CultureKings\LaravelAfterpay\Provider\AfterpayProvider;
 use tests\AbstractTestCase;
 

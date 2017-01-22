@@ -1,12 +1,12 @@
 <?php
-namespace CultureKings\LaravelAfterpay\Facade;
+namespace CultureKings\LaravelAfterpay\Facade\Merchant;
 
-use CultureKings\Afterpay\Service\Configuration;
+use CultureKings\Afterpay\Service\Merchant\Configuration;
 use Illuminate\Support\Facades\Facade;
 
 /**
  * Class ConfigurationFacade
- * @package CultureKings\LaravelAfterpay\Facade
+ * @package CultureKings\LaravelAfterpay\Facade\Merchant
  * @method get()
  */
 class ConfigurationFacade extends Facade
