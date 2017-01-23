@@ -33,4 +33,4 @@ stages:
         name: Update Code Coverage
         command: |
           mkdir -p build/logs
-          vendor/bin/coveralls -v -x coverage_clover.xml
+          vendor/bin/coveralls -v -x build/logs/clover.xml
