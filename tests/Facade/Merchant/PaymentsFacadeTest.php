@@ -13,7 +13,7 @@ class PaymentsFacadeTest extends AbstractTestCase
     public function testCanInitialise()
     {
         /** @var PaymentsFacade $facade */
-        $facade = $this->app->make('afterpay_payments');
+        $facade = $this->app->make('afterpay_merchant_payments');
         $facade::shouldReceive();
         $this->assertInstanceOf(PaymentsFacade::class, $facade);
     }

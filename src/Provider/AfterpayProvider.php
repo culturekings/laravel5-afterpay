@@ -2,14 +2,11 @@
 
 namespace CultureKings\LaravelAfterpay\Provider;
 
-use CultureKings\Afterpay\Factory\Api;
-use CultureKings\Afterpay\Model\Merchant\Authorization;
-use CultureKings\Afterpay\Service\Merchant\Configuration;
-use CultureKings\Afterpay\Service\Merchant\Orders;
-use CultureKings\Afterpay\Service\Merchant\Payments;
-use CultureKings\LaravelAfterpay\Facade\Merchant\ConfigurationFacade;
-use CultureKings\LaravelAfterpay\Facade\Merchant\OrdersFacade;
-use CultureKings\LaravelAfterpay\Facade\Merchant\PaymentsFacade;
+use CultureKings\Afterpay\Factory\InStoreApi;
+use CultureKings\Afterpay\Factory\MerchantApi;
+use CultureKings\Afterpay\Model;
+use CultureKings\Afterpay\Service;
+use CultureKings\LaravelAfterpay\Facade;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
@@ -39,29 +36,62 @@ class AfterpayProvider extends IlluminateServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Authorization::class, function (Application $app) {
+        $this->app->singleton(Model\Merchant\Authorization::class, function (Application $app) {
             /** @var Application $app */
             $config = $app->make('config')->get('afterpay');
 
-            return new Authorization($config['merchant']['url'], $config['merchant']['merchantId'], $config['merchant']['secretKey']);
+            return new Model\Merchant\Authorization($config['merchant']['url'], $config['merchant']['merchantId'], $config['merchant']['secretKey']);
         });
 
-        $this->app->singleton(Configuration::class, function (Application $app) {
-            return Api::configuration($app->make('afterpay_authorization'));
+        $this->app->singleton(Service\Merchant\Configuration::class, function (Application $app) {
+            return MerchantApi::configuration($app->make('afterpay_merchant_authorization'));
         });
 
-        $this->app->singleton(Orders::class, function (Application $app) {
-            return Api::orders($app->make('afterpay_authorization'));
+        $this->app->singleton(Service\Merchant\Orders::class, function (Application $app) {
+            return MerchantApi::orders($app->make('afterpay_merchant_authorization'));
         });
 
-        $this->app->singleton(Payments::class, function (Application $app) {
-            return Api::payments($app->make('afterpay_authorization'));
+        $this->app->singleton(Service\Merchant\Payments::class, function (Application $app) {
+            return MerchantApi::payments($app->make('afterpay_merchant_authorization'));
         });
 
-        $this->app->alias(Authorization::class, 'afterpay_authorization');
-        $this->app->alias(PaymentsFacade::class, 'afterpay_payments');
-        $this->app->alias(ConfigurationFacade::class, 'afterpay_configuration');
-        $this->app->alias(OrdersFacade::class, 'afterpay_orders');
+        $this->app->singleton(Model\InStore\Authorization::class, function (Application $app) {
+            $config = $app->make('config')->get('afterpay');
+
+            return new Model\InStore\Authorization($config['instore']['url']);
+        });
+
+        $this->app->singleton(Service\InStore\Customer::class, function (Application $app) {
+            return InStoreApi::customer($app->make('afterpay_instore_authorization'));
+        });
+
+        $this->app->singleton(Service\InStore\Device::class, function (Application $app) {
+            return InStoreApi::device($app->make('afterpay_instore_authorization'));
+        });
+
+        $this->app->singleton(Service\InStore\Order::class, function (Application $app) {
+            return InStoreApi::order($app->make('afterpay_instore_authorization'));
+        });
+
+        $this->app->singleton(Service\InStore\PreApproval::class, function (Application $app) {
+            return InStoreApi::preapproval($app->make('afterpay_instore_authorization'));
+        });
+
+        $this->app->singleton(Service\InStore\Refund::class, function (Application $app) {
+            return InStoreApi::refund($app->make('afterpay_instore_authorization'));
+        });
+
+        $this->app->alias(Model\Merchant\Authorization::class, 'afterpay_merchant_authorization');
+        $this->app->alias(Facade\Merchant\PaymentsFacade::class, 'afterpay_merchant_payments');
+        $this->app->alias(Facade\Merchant\ConfigurationFacade::class, 'afterpay_merchant_configuration');
+        $this->app->alias(Facade\Merchant\OrdersFacade::class, 'afterpay_merchant_orders');
+
+        $this->app->alias(Model\InStore\Authorization::class, 'afterpay_instore_authorization');
+        $this->app->alias(Facade\InStore\CustomerFacade::class, 'afterpay_instore_customer');
+        $this->app->alias(Facade\InStore\DeviceFacade::class, 'afterpay_instore_device');
+        $this->app->alias(Facade\InStore\OrderFacade::class, 'afterpay_instore_order');
+        $this->app->alias(Facade\InStore\PreApprovalFacade::class, 'afterpay_instore_preapproval');
+        $this->app->alias(Facade\InStore\RefundFacade::class, 'afterpay_instore_refund');
     }
 
     /**
@@ -70,11 +100,18 @@ class AfterpayProvider extends IlluminateServiceProvider
     public function provides()
     {
         return [
-            Authorization::class,
-            Payments::class,
-            Configuration::class,
-            Orders::class,
-            Api::class,
+            Model\Merchant\Authorization::class,
+            Service\Merchant\Payments::class,
+            Service\Merchant\Configuration::class,
+            Service\Merchant\Orders::class,
+            MerchantApi::class,
+            Model\InStore\Authorization::class,
+            Service\InStore\Customer::class,
+            Service\InStore\Device::class,
+            Service\InStore\Order::class,
+            Service\InStore\PreApproval::class,
+            Service\InStore\Refund::class,
+            InStoreApi::class
         ];
     }
 }

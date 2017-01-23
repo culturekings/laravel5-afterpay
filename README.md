@@ -12,7 +12,7 @@ This packages exposes services from [CultureKings/Afterpay](https://github.com/c
 
  Laravel  | Laravel5 Afterpay
 :---------|:----------
- 5.2.x    | @dev
+ 5.3.x    | @dev
 
 ## Installation
 
@@ -34,12 +34,19 @@ Find the providers key in your config/app.php and register the Afterpay Service 
 
 ## Configuration
 
+
+### Merchant API Configuration
 By default, the package uses the following environment variables to auto-configure the plugin without modification:
 
 ```bash
 AFTERPAY_API_URL (defaults to sandbox url)
 AFTERPAY_MERCHANT_ID
 AWS_AFTERPAY_SECRET_KEY
+```
+
+### InStore API Configuration
+```bash
+AFTERPAY_INSTORE_API_URL (defaults to sandbox url)
 ```
 
 To customize the configuration file, publish the package configuration using Artisan.
@@ -58,17 +65,17 @@ Using the facades allows you not to worry about the Authorisation object that is
 
 Configuration
 ```php
-$api = \App::make('afterpay_configuration');
+$api = \App::make('afterpay_merchant_configuration');
 $api::get();
 ```
 Payments
 ```php
-$api = \App::make('afterpay_payments');
+$api = \App::make('afterpay_merchant_payments');
 $payments = $api::listPayments();
 ```
 Orders
 ```php
-$api = \App::make('afterpay_orders');
+$api = \App::make('afterpay_merchant_orders');
 $order = $api::get(ORDER_TOKEN);
 ```
 
@@ -81,5 +88,5 @@ The trade off is that your now responsible for creating your own Authentication 
 You can still ask Laravel to create you an Authentication object with your credentials loaded from config.
 
 ```php
-$auth = \App::make(CultureKings\Afterpay\Model\Authorization::class);
+$auth = \App::make(CultureKings\Afterpay\Model\Merchant\Authorization::class);
 ```

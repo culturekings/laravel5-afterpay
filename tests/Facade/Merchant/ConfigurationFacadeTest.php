@@ -13,7 +13,7 @@ class ConfigurationFacadeTest extends AbstractTestCase
     public function testCanInitialise()
     {
         /** @var ConfigurationFacade $facade */
-        $facade = $this->app->make('afterpay_configuration');
+        $facade = $this->app->make('afterpay_merchant_configuration');
         $facade::shouldReceive();
         $this->assertInstanceOf(ConfigurationFacade::class, $facade);
     }
