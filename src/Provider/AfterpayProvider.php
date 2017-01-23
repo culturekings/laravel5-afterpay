@@ -111,7 +111,7 @@ class AfterpayProvider extends IlluminateServiceProvider
             Service\InStore\Order::class,
             Service\InStore\PreApproval::class,
             Service\InStore\Refund::class,
-            InStoreApi::class
+            InStoreApi::class,
         ];
     }
 }
