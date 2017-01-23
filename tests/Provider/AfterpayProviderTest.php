@@ -19,8 +19,8 @@ class AfterpayProviderTest extends AbstractTestCase
     public function testConfig()
     {
         $config = \Config::get('afterpay');
-        $this->assertEquals(Authorization::SANDBOX_URI, $config['url']);
-        $this->assertEquals('ABC123', $config['merchantId']);
-        $this->assertEquals('123ABC', $config['secretKey']);
+        $this->assertEquals(Authorization::SANDBOX_URI, $config['merchant']['url']);
+        $this->assertEquals('ABC123', $config['merchant']['merchantId']);
+        $this->assertEquals('123ABC', $config['merchant']['secretKey']);
     }
 }

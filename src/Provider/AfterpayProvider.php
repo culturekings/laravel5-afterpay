@@ -43,7 +43,7 @@ class AfterpayProvider extends IlluminateServiceProvider
             /** @var Application $app */
             $config = $app->make('config')->get('afterpay');
 
-            return new Authorization($config['url'], $config['merchantId'], $config['secretKey']);
+            return new Authorization($config['merchant']['url'], $config['merchant']['merchantId'], $config['merchant']['secretKey']);
         });
 
         $this->app->singleton(Configuration::class, function (Application $app) {
