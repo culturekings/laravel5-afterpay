@@ -1,12 +1,12 @@
 <?php
-namespace tests\Facade;
+namespace tests\Facade\Merchant;
 
-use CultureKings\LaravelAfterpay\Facade\PaymentsFacade;
+use CultureKings\LaravelAfterpay\Facade\Merchant\PaymentsFacade;
 use tests\AbstractTestCase;
 
 /**
  * Class PaymentsFacadeTest
- * @package tests\Facade
+ * @package tests\Facade\Merchant
  */
 class PaymentsFacadeTest extends AbstractTestCase
 {
