@@ -57,7 +57,7 @@ Update your settings in the generated app/config/afterpay.php configuration file
 
 ## Usage
 
-### Facades
+### Merchant API Facades
 
 This package exposes multiple facades for you to use.
 
@@ -77,6 +77,42 @@ Orders
 ```php
 $api = \App::make('afterpay_merchant_orders');
 $order = $api::get(ORDER_TOKEN);
+```
+
+### InStore API Facades
+
+This package exposes multiple facades for you to use.
+
+Authentication is more manual with this API and it is required for you to manually set the details on `\CultureKings\Afterpay\Model\InStore\Authorization`.
+
+Customer
+```php
+$api = \App::make('afterpay_instore_customer');
+$api::invite();
+```
+
+Device
+```php
+$api = \App::make('afterpay_instore_device');
+$api::activate();
+```
+
+Order
+```php
+$api = \App::make('afterpay_instore_order');
+$order = $api::create();
+```
+
+PreApproval
+```php
+$api = \App::make('afterpay_instore_preapproval');
+$order = $api::enquiry();
+```
+
+Refund
+```php
+$api = \App::make('afterpay_instore_refund');
+$order = $api::create();
 ```
 
 ### Raw
