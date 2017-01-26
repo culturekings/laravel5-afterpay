@@ -22,15 +22,20 @@ stages:
         command: composer install -o --prefer-dist --no-interaction
       - type: shell
         name: Run Tests
-        command: vendor/bin/phpunit -c phpunit.xml --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml --coverage-clover build/logs/clover.xml tests
+        command: |
+          mkdir -p /tmp/testresults/phpunit
+          vendor/bin/phpunit -c phpunit.xml --log-junit /tmp/testresults/phpunit/junit.xml --coverage-clover build/logs/clover.xml tests
       - type: shell
         name: Run Coding Standards
         command: |
+          mkdir -p /tmp/testresults/phpcs
           vendor/bin/phpcs --config-set installed_paths vendor/culturekings/symfony2-coding-standard
-          vendor/bin/phpcs
+          vendor/bin/phpcs --report-junit=/tmp/testresults/phpcs/junit.xml
           vendor/bin/phpcpd ./src
       - type: shell
         name: Update Code Coverage
         command: |
           mkdir -p build/logs
           vendor/bin/coveralls -v -x build/logs/clover.xml
+      - type: test-results-store
+        path: /tmp/testresults/
