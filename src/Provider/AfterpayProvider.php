@@ -36,6 +36,14 @@ class AfterpayProvider extends IlluminateServiceProvider
      */
     public function register()
     {
+        $this->app->singleton('AfterpayMerchantPing', function(Application $app, array $params) {
+            return call_user_func_array([MerchantApi::class, 'ping'], $params);
+        });
+
+        $this->app->singleton('AfterpayInstorePing', function(Application $app, array $params) {
+            return call_user_func_array([InStoreApi::class, 'ping'], $params);
+        });
+
         $this->app->singleton(Model\Merchant\Authorization::class, function (Application $app) {
             /** @var Application $app */
             $config = $app->make('config')->get('afterpay');
@@ -81,11 +89,15 @@ class AfterpayProvider extends IlluminateServiceProvider
             return InStoreApi::refund($app->make('afterpay_instore_authorization'));
         });
 
+        $this->app->alias('AfterpayMerchantPing', 'afterpay_merchant_ping');
+        $this->app->alias('AfterpayInstorePing', 'afterpay_instore_ping');
+
         $this->app->alias(Model\Merchant\Authorization::class, 'afterpay_merchant_authorization');
         $this->app->alias(Facade\Merchant\PaymentsFacade::class, 'afterpay_merchant_payments');
         $this->app->alias(Facade\Merchant\ConfigurationFacade::class, 'afterpay_merchant_configuration');
         $this->app->alias(Facade\Merchant\OrdersFacade::class, 'afterpay_merchant_orders');
 
+        $this->app->alias(Facade\PingFacade::class, 'afterpay_ping');
         $this->app->alias(Model\InStore\Authorization::class, 'afterpay_instore_authorization');
         $this->app->alias(Facade\InStore\CustomerFacade::class, 'afterpay_instore_customer');
         $this->app->alias(Facade\InStore\DeviceFacade::class, 'afterpay_instore_device');
@@ -100,6 +112,7 @@ class AfterpayProvider extends IlluminateServiceProvider
     public function provides()
     {
         return [
+            Service\Ping::class,
             Model\Merchant\Authorization::class,
             Service\Merchant\Payments::class,
             Service\Merchant\Configuration::class,

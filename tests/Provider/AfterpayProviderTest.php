@@ -11,7 +11,7 @@ class AfterpayProviderTest extends AbstractTestCase
     public function testProvides()
     {
         $provider = new AfterpayProvider($this->app);
-        $this->assertCount(12, $provider->provides());
+        $this->assertCount(13, $provider->provides());
         $this->assertContains(Model\Merchant\Authorization::class, $provider->provides());
         $this->assertContains(MerchantApi::class, $provider->provides());
     }
