@@ -66,12 +66,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/culturekings/afterpay.git",
-                "reference": "6e5e3d37bace97a62ad2d8fb831a3fbc02a0cd98"
+                "reference": "5f7cc91fd703adb32897a99ba70524d6e8f65e41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/culturekings/afterpay/zipball/6e5e3d37bace97a62ad2d8fb831a3fbc02a0cd98",
-                "reference": "6e5e3d37bace97a62ad2d8fb831a3fbc02a0cd98",
+                "url": "https://api.github.com/repos/culturekings/afterpay/zipball/5f7cc91fd703adb32897a99ba70524d6e8f65e41",
+                "reference": "5f7cc91fd703adb32897a99ba70524d6e8f65e41",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "payments",
                 "shopping"
             ],
-            "time": "2017-02-21 05:58:13"
+            "time": "2017-02-21 06:36:47"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
