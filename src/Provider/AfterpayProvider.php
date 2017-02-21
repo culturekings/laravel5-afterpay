@@ -36,12 +36,15 @@ class AfterpayProvider extends IlluminateServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('AfterpayMerchantPing', function (Application $app, array $params) {
-            return call_user_func_array([MerchantApi::class, 'ping'], $params);
+        $this->app->singleton(Service\Merchant\Ping::class, function (Application $app) {
+            /** @var Application $app */
+            $baseUrl = $app->make('config')->get('afterpay.merchant.base_url');
+            return MerchantApi::ping($baseUrl);
         });
 
-        $this->app->singleton('AfterpayInstorePing', function (Application $app, array $params) {
-            return call_user_func_array([InStoreApi::class, 'ping'], $params);
+        $this->app->singleton(Service\InStore\Ping::class, function (Application $app) {
+            $baseUrl = $app->make('config')->get('afterpay.instore.base_url');
+            return InStoreApi::ping($baseUrl);
         });
 
         $this->app->singleton(Model\Merchant\Authorization::class, function (Application $app) {
