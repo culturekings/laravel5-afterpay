@@ -23,7 +23,7 @@
     ],
     "require": {
         "php": ">=5.6",
-        "culturekings/afterpay": "dev-ping-service",
+        "culturekings/afterpay": "^2.0",
         "illuminate/support": "~5.2"
     },
     "require-dev": {

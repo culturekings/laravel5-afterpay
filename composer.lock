@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "44de2fbaf83efafd7b4911dd73e6fb59",
+    "content-hash": "b2117bcc7f58c5da2b78976b1cbb1509",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -62,16 +62,16 @@
         },
         {
             "name": "culturekings/afterpay",
-            "version": "dev-ping-service",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/culturekings/afterpay.git",
-                "reference": "5f7cc91fd703adb32897a99ba70524d6e8f65e41"
+                "reference": "f5e792beec65bcbe53c86a7ede81c2d7eb1ca68c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/culturekings/afterpay/zipball/5f7cc91fd703adb32897a99ba70524d6e8f65e41",
-                "reference": "5f7cc91fd703adb32897a99ba70524d6e8f65e41",
+                "url": "https://api.github.com/repos/culturekings/afterpay/zipball/f5e792beec65bcbe53c86a7ede81c2d7eb1ca68c",
+                "reference": "f5e792beec65bcbe53c86a7ede81c2d7eb1ca68c",
                 "shasum": ""
             },
             "require": {
@@ -114,7 +114,7 @@
                 "payments",
                 "shopping"
             ],
-            "time": "2017-02-21 06:36:47"
+            "time": "2017-02-21T07:03:11+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -4627,7 +4627,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "culturekings/afterpay": 20,
         "satooshi/php-coveralls": 20
     },
     "prefer-stable": false,
