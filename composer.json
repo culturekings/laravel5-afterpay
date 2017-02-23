@@ -23,13 +23,13 @@
     ],
     "require": {
         "php": ">=5.6",
-        "culturekings/afterpay": "~2.0",
+        "culturekings/afterpay": "^2.0",
         "illuminate/support": "~5.2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.6",
         "culturekings/symfony2-coding-standard": "^2.10",
-        "sebastian/phpcpd": "^2.0",
+        "sebastian/phpcpd": "~3.0",
         "satooshi/php-coveralls": "dev-master",
         "orchestra/testbench": "3.2.*",
         "phpunit/phpunit": "^5.5",
