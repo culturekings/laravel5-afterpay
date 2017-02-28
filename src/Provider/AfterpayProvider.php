@@ -39,11 +39,13 @@ class AfterpayProvider extends IlluminateServiceProvider
         $this->app->singleton(Service\Merchant\Ping::class, function (Application $app) {
             /** @var Application $app */
             $baseUrl = $app->make('config')->get('afterpay.merchant.base_url');
+
             return MerchantApi::ping($baseUrl);
         });
 
         $this->app->singleton(Service\InStore\Ping::class, function (Application $app) {
             $baseUrl = $app->make('config')->get('afterpay.instore.base_url');
+
             return InStoreApi::ping($baseUrl);
         });
 
