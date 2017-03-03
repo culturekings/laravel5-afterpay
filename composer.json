@@ -31,8 +31,8 @@
         "culturekings/symfony2-coding-standard": "^2.10",
         "sebastian/phpcpd": "~3.0",
         "satooshi/php-coveralls": "dev-master",
-        "orchestra/testbench": "3.2.*",
-        "phpunit/phpunit": "^5.5",
+        "orchestra/testbench": "3.3.*",
+        "phpunit/phpunit": "~5.0",
         "mockery/mockery": "^0.9.5"
     },
     "autoload": {
